@@ -1,10 +1,32 @@
 # Workast Technical Assessment
 
-Create a `.env` on the root with your Giphy api key and the following content:
+## Run locally
 
+1. Create a `.env` on the root with your Giphy api key and the following content:
+
+```bash
+REACT_APP_GIPHY_API_KEY=YOUR_API_KEY_HERE
 ```
-REACT_APP_GIPHY_API_KEY=[YOUR_API_KEY_HERE]
+
+2. Run in your terminal
+
+```bash
+$ npm install && npm start
 ```
+
+## User Stories
+
+- [ ] Display TOP 10 Trending GIFs
+- [x] Display a Search box
+- [x] If there's a result display TOP 20 GIFs
+- [ ] Click on GIF will open up in new tab
+- [ ] Favourite functionality
+  - [ ] Button to add to user favourites
+  - [ ] Favorites List are display above Search Box
+  - [ ] If a GIF from a search result it's already saved as favourite display the fav button differently
+  - [ ] U ser can Remove GIF from favourite list
+
+---
 
 ## Summary
 
