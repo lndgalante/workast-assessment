@@ -1,6 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-import App from './modules/app/components/App'
+import './index.css'
 
-ReactDOM.render(<App />, document.querySelector('#root'))
+import Trending from './components/Trending'
+import Results from './components/GifResults'
+import SearchInput from './components/SearchInput'
+
+ReactDOM.render(
+  <Router>
+    <div className="container">
+      <SearchInput placeholder={'Search all the GIFs'} />
+
+      <Switch>
+        <Route path="/" exact component={Trending} />
+        <Route path="/search/:query" component={Results} />
+      </Switch>
+    </div>
+  </Router>,
+
+  document.querySelector('#root')
+)
