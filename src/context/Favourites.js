@@ -1,28 +1,41 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useReducer, useEffect } from 'react'
 
 const initialState = {
-  favourites: [],
+  favourites: {},
 }
 
-const GiphyContext = createContext(initialState)
+const FavouritesContext = createContext(initialState)
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'ADD_FAVOURITE_GIFS': {
+      const { gifs } = action.payload
+
+      return {
+        ...state,
+        favourites: gifs,
+      }
+    }
+
     case 'ADD_FAVOURITE_GIF': {
       const { gif } = action.payload
 
       return {
         ...state,
-        favourites: [...state.favourites, gif],
+        favourites: {
+          ...state.favourites,
+          [gif.id]: gif,
+        },
       }
     }
 
     case 'REMOVE_FAVOURITE_GIF': {
       const { id } = action.payload
+      const { [id]: removedFavourite, ...favourites } = state.favourites
 
       return {
         ...state,
-        favourites: state.favourites.filter(favourite => favourite.id === id),
+        favourites,
       }
     }
 
@@ -32,27 +45,40 @@ const reducer = (state, action) => {
   }
 }
 
-const GiphyProvider = ({ children }) => {
+const FavouritesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  useEffect(() => {
+    const favourites = window.localStorage.getItem('favourites')
+    addFavouriteGifs(JSON.parse(favourites))
+  }, [])
+
+  useEffect(() => {
+    window.localStorage.setItem('favourites', JSON.stringify(state.favourites))
+  }, [state])
+
+  const addFavouriteGifs = gifs => {
+    dispatch({ type: 'ADD_FAVOURITE_GIFS', payload: { gifs } })
+  }
+
   const addFavouriteGif = gif => {
-    dispatch({ type: 'ADD_FAVOURITE_GIF', payload: gif })
+    dispatch({ type: 'ADD_FAVOURITE_GIF', payload: { gif } })
   }
 
   const removeFavouriteGif = id => {
-    dispatch({ type: 'REMOVE_FAVOURITE_GIF', payload: id })
+    dispatch({ type: 'REMOVE_FAVOURITE_GIF', payload: { id } })
   }
 
   return (
-    <GiphyContext.Provider
+    <FavouritesContext.Provider
       value={{
         state,
         actions: { addFavouriteGif, removeFavouriteGif },
       }}
     >
       {children}
-    </GiphyContext.Provider>
+    </FavouritesContext.Provider>
   )
 }
 
-export { GiphyProvider, GiphyContext as default }
+export { FavouritesProvider, FavouritesContext as default }

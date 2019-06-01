@@ -4,6 +4,7 @@ import StackGrid from 'react-stack-grid'
 
 import Loader from 'components/Loader'
 import Header from 'components/Header'
+import GifCard from 'components/GifCard'
 
 import { RouteParams } from './types'
 import { useGiphySearch } from './hooks'
@@ -19,9 +20,7 @@ const GifResults = ({ match }: RouteComponentProps<RouteParams>) => {
       {error && <p>{error}</p>}
 
       <StackGrid monitorImagesLoaded columnWidth={'25%'}>
-        {gifs &&
-          Array.isArray(gifs) &&
-          gifs.map((gif: any) => <img key={gif.id} src={gif.images.downsized.url} alt={gif.title} />)}
+        {gifs && Array.isArray(gifs) && gifs.map((gif: any) => <GifCard key={gif.id} gif={gif} />)}
       </StackGrid>
     </div>
   )
