@@ -16,7 +16,7 @@ $ npm install && npm start
 
 ## User Stories
 
-- [ ] Display TOP 10 Trending GIFs
+- [x] Display TOP 10 Trending GIFs
 - [x] Display a Search box
 - [x] If there's a result display TOP 20 GIFs
 - [ ] Click on GIF will open up in new tab
@@ -24,7 +24,7 @@ $ npm install && npm start
   - [ ] Button to add to user favourites
   - [ ] Favorites List are display above Search Box
   - [ ] If a GIF from a search result it's already saved as favourite display the fav button differently
-  - [ ] U ser can Remove GIF from favourite list
+  - [ ] User can Remove GIF from favourite list
 
 ---
 

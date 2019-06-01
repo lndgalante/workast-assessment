@@ -12,6 +12,18 @@ const api = {
       throw new Error(error)
     }
   },
+  trending: async () => {
+    try {
+      const response = await fetch(`${BASE_URL}/trending?api_key=${API_KEY}&limit=${10}`)
+      const results = await response.json()
+      console.log('TCL: results', results)
+
+      return results
+    } catch (error) {
+      throw new Error(error)
+    }
+  },
+  deffer: async (ms: number) => new Promise(resolve => setTimeout(resolve, ms)),
 }
 
 export default api

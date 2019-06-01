@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import StackGrid from 'react-stack-grid'
 
 import Loader from 'components/Loader'
+import Header from 'components/Header'
 
 import { RouteParams } from './types'
 import { useGiphySearch } from './hooks'
@@ -12,6 +13,8 @@ const GifResults = ({ match }: RouteComponentProps<RouteParams>) => {
 
   return (
     <div>
+      <Header title={`GIFs results for "${match.params.query}"`} />
+
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
 

@@ -2,21 +2,19 @@ import { useState, useEffect } from 'react'
 
 import api from 'utils/api'
 
-const useGiphySearch = (query: string) => {
+const useGiphyTrending = () => {
   const [gifs, setGifs] = useState<null | []>(null)
   const [error, setError] = useState('')
   const [isLoading, setLoading] = useState(false)
 
-  const getGifsByQuery = async (query: string) => {
+  const getTrendingGifs = async () => {
     try {
       setGifs([])
       setLoading(true)
 
-      const response = await api.search(query)
-      const { data, meta, pagination }: { data: []; meta: any; pagination: any } = response
-
+      const response = await api.trending()
+      const { data, meta }: { data: []; meta: any } = response
       if (meta.status !== 200) throw new Error(meta.msg)
-      if (pagination.count === 0) throw new Error(`No GIFs found for "${query}"`)
 
       setGifs(data)
     } catch (error) {
@@ -28,10 +26,10 @@ const useGiphySearch = (query: string) => {
   }
 
   useEffect(() => {
-    getGifsByQuery(query)
-  }, [query])
+    getTrendingGifs()
+  }, [])
 
   return [gifs, isLoading, error]
 }
 
-export { useGiphySearch }
+export { useGiphyTrending }
