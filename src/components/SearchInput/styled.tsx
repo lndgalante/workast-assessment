@@ -4,6 +4,7 @@ const Form = styled.form`
   height: 52px;
   display: grid;
   grid-template-columns: 1fr auto;
+  margin: 8px 0;
 `
 
 const Input = styled.input.attrs({ type: 'text' })`

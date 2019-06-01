@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import './index.css'
 
-import Trending from './components/Trending'
-import Results from './components/GifResults'
+import Trending from './pages/Trending'
+import Results from './pages/GifResults'
 import SearchInput from './components/SearchInput'
 
 ReactDOM.render(
