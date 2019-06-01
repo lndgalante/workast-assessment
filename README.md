@@ -1,5 +1,9 @@
 # Workast Technical Assessment
 
+## Try it
+
+[https://workast-giphy.netlify.com](https://workast-giphy.netlify.com)
+
 ## Run locally
 
 1. Create a `.env` on the root with your Giphy api key and the following content:
@@ -19,12 +23,12 @@ $ npm install && npm start
 - [x] Display TOP 10 Trending GIFs
 - [x] Display a Search box
 - [x] If there's a result display TOP 20 GIFs
-- [ ] Click on GIF will open up in new tab
-- [ ] Favourite functionality
-  - [ ] Button to add to user favourites
-  - [ ] Favorites List are display above Search Box
-  - [ ] If a GIF from a search result it's already saved as favourite display the fav button differently
-  - [ ] User can Remove GIF from favourite list
+- [x] Click on GIF will open up in new tab
+- [x] Favourite functionality
+  - [x] Button to add to user favourites
+  - [x] Favorites List are display above Search Box
+  - [x] If a GIF from a search result it's already saved as favourite display the fav button differently
+  - [x] User can Remove GIF from favourite list
 
 ---
 
@@ -39,7 +43,7 @@ When the user visits the application, they can see the top 10 trending GIFs and 
 ## Technical requirements
 
 - The solution should be clear, concise, efficient and maintainable.
-- Use the Giphy API, all details are [here](https://developers.giphy.com/docs/)
+- Use the Giphy API, all details are [here](https://developers.giphy.com/docs)
 - Use React
 - Your application should not require any extra backend service / API
 - You can use any UI/UX library that you want or even plain HTML elements with your own CSS/LESS/SASS.
@@ -56,5 +60,3 @@ This is a simple assessment but you should treat it as an application that will 
 ## Deliverables
 
 You should send us back a Github/Bitbucket repository link, with clear instructions on how to build and run the application.
-
----
