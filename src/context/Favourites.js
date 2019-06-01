@@ -49,7 +49,7 @@ const FavouritesProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    const favourites = window.localStorage.getItem('favourites')
+    const favourites = window.localStorage.getItem('favourites') || '{}'
     addFavouriteGifs(JSON.parse(favourites))
   }, [])
 
