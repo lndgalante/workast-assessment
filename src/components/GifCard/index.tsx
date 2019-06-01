@@ -19,15 +19,15 @@ const GifCard = ({ gif }: { gif: Data }) => {
   return (
     <Wrapper>
       <Icons className="icons">
-        <button onClick={() => window.open(gif.url, '_blank')}>
+        <button aria-label="Open GIF in new tab" onClick={() => window.open(gif.url, '_blank')}>
           <Link width={20} fill="#fff" />
         </button>
         {favourites[id] ? (
-          <button onClick={() => removeFavouriteGif(id)}>
+          <button aria-label="Remove GIF from favourites" onClick={() => removeFavouriteGif(id)}>
             <Unheart width={20} fill="#fff" />
           </button>
         ) : (
-          <button onClick={() => addFavouriteGif(gif)}>
+          <button aria-label="Add GIF to favourites" onClick={() => addFavouriteGif(gif)}>
             <Heart width={20} fill="#fff" />
           </button>
         )}

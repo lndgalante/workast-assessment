@@ -22,7 +22,7 @@ const SearchInput = ({ placeholder, onSearchInputSubmit, history }: RouteCompone
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Input placeholder={placeholder} onChange={handleChange} />
+      <Input aria-label={placeholder} placeholder={placeholder} onChange={handleChange} />
       <Button>
         <Search />
       </Button>
