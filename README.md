@@ -30,6 +30,11 @@ $ npm install && npm start
   - [x] If a GIF from a search result it's already saved as favourite display the fav button differently
   - [x] User can Remove GIF from favourite list
 
+## Audits
+
+I've used LightHouse online and these are some of the [results](https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://workast-giphy.netlify.com).
+Even though there's some space left for improvement in these [issues](https://i.ibb.co/WFzjBJZ/Captura-de-Pantalla-2019-06-01-a-la-s-18-12-03.png).
+
 ---
 
 ## Summary
